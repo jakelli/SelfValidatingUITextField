@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
   
-    @IBOutlet weak var outPut: UITextView!
-  let numToAdd = 1
+  @IBOutlet weak var outPut: UITextView!
   
   weak var actionToEnable : UIAlertAction?
   
@@ -24,9 +23,7 @@ class ViewController: UIViewController {
     
       let titleStr = "Self Validating UITextField"
       let messageStr = "Enter a number 1-60"
-      
       let alert = UIAlertController(title: titleStr, message: messageStr, preferredStyle: UIAlertControllerStyle.alert)
-      
       let placeholderStr =  "1-60"
       
       alert.addTextField(configurationHandler: {(textField: UITextField) in
@@ -35,11 +32,12 @@ class ViewController: UIViewController {
       })
       
       let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (_) -> Void in
-        
+        // perform cancel action (optional) else change to nil
       })
       
       let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (_) -> Void in
         let textfield = alert.textFields!.first!
+        // perform your action - textfield is valid
         self.outPut.text = textfield.text
       })
       
